@@ -1,6 +1,7 @@
-package tablegame;
+package tablegame.gui;
 
 import javafx.application.Application;
+import tablegame.gui.TableGameApplication;
 
 public class Main {
 

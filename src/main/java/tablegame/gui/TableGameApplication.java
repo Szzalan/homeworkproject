@@ -1,4 +1,4 @@
-package tablegame;
+package tablegame.gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +12,7 @@ public class TableGameApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/game.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/menu.fxml"));
         stage.setTitle("Table game");
         Scene scene = new Scene(root);
         stage.setScene(scene);
