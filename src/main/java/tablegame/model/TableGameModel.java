@@ -85,7 +85,6 @@ public class TableGameModel {
     public ArrayList<Position> getPossibleMoves(int row, int col){
         ArrayList<Position> steps = new ArrayList<>();
         int direction = table[row][col] == State.RED ? 1 : -1;
-        System.out.println(table[row][col]);
         Position currentPosition = new Position(row,col);
 
         checkPosition(steps,currentPosition,new Position(row+direction,col));
@@ -116,5 +115,4 @@ public class TableGameModel {
         }
         return false;
     }
-
 }
