@@ -1,13 +1,7 @@
 package tablegame.gui;
 
-import javafx.beans.binding.ObjectBinding;
-import javafx.beans.property.ReadOnlyObjectProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.HPos;
-import javafx.geometry.Pos;
-import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,13 +9,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import tablegame.json.JsonResult;
+import tablegame.json.JsonManager;
 import tablegame.model.Position;
 import tablegame.model.State;
 import tablegame.model.TableGameModel;
@@ -83,6 +76,7 @@ public class TableGameController {
         var shape = cell.getChildren().get(0);
         var row = GridPane.getRowIndex(cell);
         var col = GridPane.getColumnIndex(cell);
+        Logger.info("Clicked: {},{} whose state is: {}",row,col,model.getTable()[row][col]);
         if(stepProgress == 1)
             stepProgressOne((Circle) shape,row,col);
 
@@ -161,8 +155,9 @@ public class TableGameController {
         return null;
     }
     private  void handleVictory(State winner) {
-        System.out.println("winner: " + winner);
+        Logger.info("winner: {}",winner);
         String wincol = winner == State.RED ? "RED" : "BLUE";
+        saveResult(wincol,model.getStepCounter());
         showMessageBox(wincol);
     }
     private  void showMessageBox(String winner){
@@ -184,6 +179,12 @@ public class TableGameController {
                 win.show();
             }
         });
+
+    }
+    private void saveResult(String winner,int stepCounter) {
+        JsonResult result = new JsonResult(winner,stepCounter);
+        JsonManager saveHandler = new JsonManager(result);
+        saveHandler.save();
     }
 }
 
