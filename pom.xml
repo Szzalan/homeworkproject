@@ -6,12 +6,12 @@
     <groupId>hu.unideb.inf</groupId>
     <artifactId>table.game</artifactId>
     <version>1.0</version>
-    <description><!-- TODO: a short description of your project --></description>
+    <description>A tablegame.The goal is to either remove the enemy pieces or play until either of you can't move your pieces anymore.</description>
     <developers>
         <developer>
-            <id><!-- AMDOIG --></id>
-            <name><!-- Szilágyi Zalán --></name>
-            <email><!-- zalanka12345678@gmail.com --></email>
+            <id>AMDOIG</id>
+            <name>Szilágyi Zalán</name>
+            <email>zalanka12345678@gmail.com</email>
             <organization>Faculty of Informatics, University of Debrecen</organization>
             <organizationUrl>https://www.inf.unideb.hu/</organizationUrl>
         </developer>
@@ -27,7 +27,7 @@
         <maven.surefire.version>3.0.0</maven.surefire.version>
         <jacoco.version>0.8.9</jacoco.version>
         <tinylog.version>2.6.1</tinylog.version>
-        <exec.mainClass><!-- TODO: the main class of your application that contains the main method --></exec.mainClass>
+        <exec.mainClass>tablegame.gui.Main</exec.mainClass>
     </properties>
     <dependencies>
         <dependency>
@@ -65,6 +65,16 @@
             <artifactId>junit-jupiter-params</artifactId>
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.15.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10</version>
         </dependency>
     </dependencies>
     <build>
