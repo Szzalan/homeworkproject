@@ -6,6 +6,6 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tablegame.gui.MenuController">
    <children>
       <Button fx:id="playbtn" layoutX="219.0" layoutY="187.0" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="26.0" prefWidth="162.0" text="Play" />
-      <Button fx:id="historybtn" layoutX="218.0" layoutY="233.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="162.0" text="Match history" />
+      <Button fx:id="historybtn" layoutX="218.0" layoutY="233.0" mnemonicParsing="false" onAction="#handleHistoryButton" prefHeight="26.0" prefWidth="162.0" text="Match history" />
    </children>
 </AnchorPane>
